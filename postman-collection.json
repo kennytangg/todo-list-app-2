@@ -1,0 +1,148 @@
+{
+  "info": {
+    "name": "Todo App API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:3000" }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/api/auth/sign-up/email",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"Test User\", \"email\": \"test@example.com\", \"password\": \"password123\"}"
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/api/auth/sign-in/email",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\": \"test@example.com\", \"password\": \"password123\"}"
+            }
+          }
+        },
+        {
+          "name": "Get Session",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/auth/get-session"
+          }
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/auth/sign-out"
+          }
+        },
+        {
+          "name": "Login — Wrong Password",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/api/auth/sign-in/email",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"email\": \"test@example.com\", \"password\": \"wrongpassword\"}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Todos",
+      "item": [
+        {
+          "name": "List Todos",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/todos"
+          }
+        },
+        {
+          "name": "Create Todo",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/api/todos",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"title\": \"Buy groceries\", \"description\": \"Milk, eggs, bread\"}"
+            }
+          }
+        },
+        {
+          "name": "Create Todo with Due Date",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/api/todos",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"title\": \"Call dentist\", \"dueDate\": \"2026-05-01T00:00:00.000Z\"}"
+            }
+          }
+        },
+        {
+          "name": "Update Todo",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/api/todos/:id",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"completed\": true}"
+            }
+          }
+        },
+        {
+          "name": "Delete Todo",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/todos/:id"
+          }
+        },
+        {
+          "name": "Create Todo — Missing Title (422)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/api/todos",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"description\": \"No title\"}"
+            }
+          }
+        },
+        {
+          "name": "List Todos — Unauthenticated (401)",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/todos",
+            "header": [{ "key": "Cookie", "value": "" }]
+          }
+        },
+        {
+          "name": "Delete Todo — Not Found (404)",
+          "request": {
+            "method": "DELETE",
+            "url": "{{base_url}}/api/todos/00000000-0000-0000-0000-000000000000"
+          }
+        }
+      ]
+    }
+  ]
+}
