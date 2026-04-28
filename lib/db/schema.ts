@@ -47,15 +47,6 @@ export const accounts = pgTable("accounts", {
   updatedAt: timestamp("updated_at").notNull().defaultNow(),
 });
 
-export const verifications = pgTable("verifications", {
-  id: text("id").primaryKey(),
-  identifier: text("identifier").notNull(),
-  value: text("value").notNull(),
-  expiresAt: timestamp("expires_at").notNull(),
-  createdAt: timestamp("created_at").defaultNow(),
-  updatedAt: timestamp("updated_at").defaultNow(),
-});
-
 export const todos = pgTable("todos", {
   id: uuid("id").primaryKey().defaultRandom(),
   userId: text("user_id")
