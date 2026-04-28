@@ -16,4 +16,8 @@ A todo list app created with AI (vibe coding)
 3. Run migrations: `npm run db:migrate`
 4. Start the dev server: `npm run dev`
 
+## Preview
+
+<img width="1918" height="1015" alt="Login Page" src="https://github.com/user-attachments/assets/decc853f-6627-4a1d-8f64-8ea8bfe495fa" />
+
 Open [http://localhost:3000](http://localhost:3000) in your browser.
