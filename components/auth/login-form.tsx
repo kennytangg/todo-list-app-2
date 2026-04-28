@@ -8,7 +8,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Separator } from "@/components/ui/separator";
-import { GitBranch, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
+import { GithubIcon } from "@/components/icons/github";
 
 export function LoginForm() {
   const router = useRouter();
@@ -97,7 +98,7 @@ export function LoginForm() {
             {oauthLoading ? (
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
             ) : (
-              <GitBranch className="mr-2 h-4 w-4" />
+              <GithubIcon className="mr-2 h-4 w-4" />
             )}
             Continue with GitHub
           </Button>
